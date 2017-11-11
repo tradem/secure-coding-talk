@@ -34,7 +34,7 @@
 				<section>
 					<h2>Agenda</h2>
 					<ul>
-						<li>Primer– Security Nightmares</li>
+						<li>Primer – Security Nightmares</li>
 						<li>Security by Design und Secure Coding</li>
 						<li>Secure Coding : Grundlagen (C#, Rust)</l>
 						<li>Hashing und Schlüsselableitung (KDF)</li>
@@ -234,7 +234,7 @@
 						<li>Update, Updates, Updates</li>
 						<li>Backups, Backups, Backups</li>
 						<li>Virenscanner (+/-)</li>
-						<li>Verschlüsselung/Verschleierung</li>
+						<li>Preproducable Builds</li>
 						<li>Unplugged: Sensible Daten auf System ohne Netzzugang aufbewahren und verschlüsseln</li>
 					</ul>
 					</section>
@@ -246,7 +246,7 @@
 					<section>
 						<h2>Secure Coding</h2>
 						<ul>
-							<li>Subset devensiver Programmierung</li>
+							<li>Subset defensiver Programmierung</li>
 							<li>Verständlichkeit und Nachvollziebarkeit des Code erhöhen (auditierbar, wartbar)</li>
 							<li>Verwandschaft zum CleanCoding</li>
 							<li>Security v Obscurity</li>
@@ -340,6 +340,7 @@ Console.Write("Enter password: ");
 					<section>
 						<h2>Andere Probleme in C#</h2>
 						<ul>
+							<li><code>async void</code></li>
 							<li><code>goto</code></li>
 							<li>Crypto API unter verschiendenen Windows Plattformen/.Net Platformen</li>
 							<li>Leaking Information: z. B. Logging, Crash und Stacktrace im Eventlog</li>
@@ -348,7 +349,8 @@ Console.Write("Enter password: ");
 						</ul>
 					</section>
 					<section>
-						<h2>Andere Probleme in C#</h2>
+						<h2>The upside down</h2>
+						<h4>Grenzerfahrungen in C#</h4>
 						<ul>
 							<li>unsignierte Assemblies</li>
 							<li>Zugriff auf Win32 API</li>
@@ -518,7 +520,7 @@ Console.Write("Enter password: ");
 						<h2>Authentifizierte Verschlüsselung</h2>
 					</section>
 					<section>
-	          <h4>Symmetrische Verschlüsselung (1/4)</h4>
+	          <h4>Symmetrische Verschlüsselung</h4>
 	          <p>
 	            <small><a class="test" href="https://de.wikipedia.org/wiki/Symmetrisches_Kryptosystem">
 	                https://de.wikipedia.org/wiki/Symmetrisches_Kryptosystem
@@ -531,70 +533,6 @@ Console.Write("Enter password: ");
 	          </p>
 	        </section>
 	        <section>
-	          <h4>Symmetrische Verschlüsselung (2/4)</h4>
-
-	          <p>
-	            >Die Verschlüsselung hat zwei grundsätzliche Ziele:
-	            <b>Konfusion und Diffusion</b>
-	          </p>
-
-	          <p>
-	            <ul>
-	              <li><b>1.) Konfusion:</b>
-	                <ul>
-	                  <li>Zusammenhang zwischen Geheimtext und Schlüssel so komplex wie möglich machen um damit Kryptoanalyse zu erschweren</li>
-	                  <li>Erreicht wird das z. B. durch nichtlineare Substitutionen von Eingabe und Ausgabe</li>
-	                </ul>
-	              </li>
-	            </ul>
-	        </section>
-	        <section>
-	          <h4>Symmetrische Verschlüsselung (3/4)</h4>
-
-	          <ul>
-	            <br />
-	            <li><b>2.) Diffusion:</b>
-	              <ul>
-	                <li>Auflösen von statistischen Strukturen des Klartextes</li>
-	                <li>statistische Analyse nach Buchstabenhäufigkeit im Chiffretext läuft ins Leere </li>
-	              </ul>
-	            </li>
-	            <p>
-	              <br />guter Chiffretext ist nicht von Zufallszahlen und -zeichen zu unterscheiden</p>
-	        </section>
-	        <section>
-	          <h4>Symmetrische Verschlüsselung (4/4)</h4>
-	          <p>
-	            <br /><b>2 Verfahrenstypen:</b></p>
-	          <ul>
-	            <li>Stromverschlüsselung</li>
-	            <li>Blockverschlüsselung</li>
-	          </ul>
-	        </section>
-	        <section>
-	          <h4>Stromverschlüsselung (1/2)</h4>
-	          <p>
-	            Schema
-	          </p>
-	          <p>
-	            <img src="images/stromverschluesselung.png" />
-	          </p>
-
-	        </section>
-	        <section>
-	          <h4>Stromverschlüsselung (2/2)</h4>
-	          <p>
-	            <small><a class="test" href="https://de.wikipedia.org/wiki/Stromchiffre">
-	                https://de.wikipedia.org/wiki/Stromchiffre
-	              </a></small>
-	          </p>
-	          <ul>
-	            <li>Zeichen des Klartextes werden mit den Zeichen eines Schlüsselstroms verknüpft</li>
-	            <li>Schlüsselstrom ist als pseudozufällige Zeichenfolge aus dem Schlüssel abgeleitet</li>
-	            <li>jedes Klartextzeichen kann sofort in ein chiffriertes Ausgabezeichen übersetzen werden</li>
-	            <li>besonders für Echtzeitübertragungen geeignet, z. B. für Mobilfunk</li>
-	          </ul>
-	        </section>
 	        <section>
 	          <h4>Blockverschlüsselung (1/3)</h4>
 	          <p>
@@ -605,7 +543,7 @@ Console.Write("Enter password: ");
 	          </p>
 	        </section>
 	        <section>
-	          <h4>Blockverschlüsselung (2/3)</h4>
+	          <h4>Blockverschlüsselung</h4>
 	          <p>
 	            <small><a class="test" href="https://de.wikipedia.org/wiki/Blockchiffre">
 	                https://de.wikipedia.org/wiki/Blockchiffre
@@ -619,7 +557,7 @@ Console.Write("Enter password: ");
 	          </ul>
 	        </section>
 	        <section>
-	          <h4>Blockverschlüsselung (3/3)</h4>
+	          <h4>Blockverschlüsselung</h4>
 	          <p>
 	            <small><a class="test" href="https://de.wikipedia.org/wiki/Blockchiffre">
 	                https://de.wikipedia.org/wiki/Blockchiffre
@@ -641,7 +579,7 @@ Console.Write("Enter password: ");
 								<li>Industriestandard</li>
 								<li>gilt als ungebrochen (sogar von der NSA)</li>
 								<li>Hardwarebeschleunigung</li>
-								<li>What possibly could go wrong?</li>
+								<li>What could possibly go wrong?</li>
 							</ul>
 					</section>
 					<section>
