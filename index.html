@@ -127,6 +127,15 @@
 						</blockquote>
 					</section>
 					<section>
+						<h2>Security by Design: Aspekte</h2>
+						<ul>
+							<li>Zugrifskontrolle (Access-Control)</li>
+							<li>Zielpattform</li>
+							<li>Auditierung?</li>
+							<li>Secure Channels: Firewalling, DMZ, Proxies</li>
+						</ul>
+					</section>
+					<section>
 						<h2>Softwarequalität</h2>
 						<ul>
 							<li>Agilität: Make it run, make it clean, make it secure?</li>
@@ -193,26 +202,25 @@
 					<h2>Angreifer</h2>
 					<h4>Beispiele</h4>
 					<ul>
-						<li>neugieriges Umfeld (Datenschutz)</li>
+						<li>Script Kiddies</li>
 						<li>Diebe, kriminelle Elemente</li>
-						<li>Nachrichtendienste mittels Massenüberwachung (NSA, GCHQ, BND)</li>
-						<li>Sicherheitsbehörden (BKA, Verfassungsschutz)</li>
+						<li>teilweise auch Sicherheitsbehörden und Nachrichtendienste</li>
 					</ul>
 					</section>
 					<section>
 					<h2>Folgen bei Schutzversagen</h2>
 					<h4>Beispiele</h4>
 					<ul>
-						<li>Identitätsdiebstahl: Hacker/Script-Kiddie übernimmt Facebook-Account</li>
-						<li>Übernahme/Verlust des Geräts: Smartphone, Laptop, Tablet, E-Book-Reader</li>
-						<li>Datenverlust: Messenger-App, welche es erlaubt übermittelte Bildnachrichten abzugreifen, Systemverschlüsselung durch Erpressungs-Trojaner</li>
+						<li>Identitätsdiebstahl</li>
+						<li>Übernahme/Verlust des Geräts</li>
+						<li>Datenverlust: Systemverschlüsselung durch Erpressungs-Trojaner</li>
 					</ul>
 					</section>
 					<section>
 					<h2>Angriffspotentiale</h2>
 					<h4>Beispiele</h4>
 					<ul>
-						<li><strong>physischer Gerätezugriff</strong> <em>Familienangehöriger installiert Überwachungssoftware auf meinem Gerät</em> </li>
+						<li><strong>physischer Gerätezugriff</strong> <em>Angreifer*In installiert Überwachungssoftware auf meinem Gerät</em> </li>
 						<li><strong>Zugriff auf den Transportweg der Daten</strong> <em>Angreifer*In könnte das LAN/WLAN ausspionieren </em></li>
 						<li><strong>Phishing/Trojaner, Manipulation des Endpunktes der Kommunikation</strong> <em>Angreifer*In könnte eine Website gefälscht haben</em></li>
 						<li><strong>Manipulation des Systems/von Anwendungen</strong> <em> Angreifer*In nutzt Sicherheitslücken im System/ Applikationen </em></li>
@@ -286,6 +294,7 @@
 						<ul>
 							<li>Best Practice</li>
 							<li>UnexcpectedExcetion Handler</li>
+							<li>RutimeExceptions v check Exception</li>
 							<li>catch ins Nirvana</li>
 						</ul>
 					</section>
@@ -421,6 +430,20 @@ Console.Write("Enter password: ");
 								<td>1992, 1996 (RIPEMD-128, RIPEMD-160)</td>
 								<td>kollisionen für die Variante von 1992 möglich</td>
 							</tr>
+						</tbody>
+					</table>
+			 </section>
+				<section>
+					<h4>Kryptologische Hashfunktion</h4>
+					<h4>Übersicht (Auswahl)</h4>
+					<table>
+						<thead>
+										<tr>
+											<th>Verfahren</th>
+											<th>Veröffentlichung</th>
+											<th>Empfehlung</th>
+										</tr>
+									</thead>
 							<tr>
 								<td>Whirlpool</td>
 								<td>2003</td>
@@ -502,19 +525,6 @@ Console.Write("Enter password: ");
 						 </tbody>
 					 </table>
 			 </section>
-					<section>
-						<h2>PBKD2</h2>
-						<h4>Code-Bespiel C#</h4>
-					</section>
-					<section>
-						<h2>Argon2</h2>
-						<h4>Code-Bespiel C#</h4>
-					</section>
-					<section>
-						<h2>Argon2</h2>
-						<h4>Code-Bespiel Rust</h4>
-					</section>
-				</section>
 				<section>
 					<section>
 						<h2>Authentifizierte Verschlüsselung</h2>
@@ -609,9 +619,6 @@ Console.Write("Enter password: ");
 						 <li>IV muss für jeden gesammten Verschlüsslungsvorgang <strong>krptografisch sicher zufällig erzeugt</strong> werden</li>
 						 <li>vgl. Nonce (number used once, used only once)</li>
 						</ul>
-					</section>
-					<section>
-						<h2>Authentifizierte Verschlüsselung in C#</h2>
 					</section>
 				</section>
 				<section>
@@ -775,58 +782,7 @@ Console.Write("Enter password: ");
 	          </ul>
 	        </section>
 				</section>
-				<section>
-					<section>
-						<h2>Ende-zu-Ende-Verschlüsselung</h2>
-					</section>
-					<section>
-						<h2>Perfect Forward Secrecy</h2>
-						<ul>
-							<li>Späteres Aufdecken oder Brechen von geheimen Nutzerschlüsseln darf es nicht erlauben, frühere oder künftige Nachrichten zu entschlüsseln
-							</li>
-							<li>⇒ neue Schlüssel für jede Nachricht erzeugen</li>
-						</ul>
-					</section>
-					<section>
-						<h2>PFS-Problem</h2>
-						<ul>
-							<li>Schlüsselerzeugung <em>ohne</em> Schlüsselaustausch</li>
-							<li>erfordert, dass beide Teilnehmer online sind</li>
-							<li>erfordert einige Hilfsdaten in beide Richtungen</li>
-							<li>die Forderung FS ist strenggenommen unvereinbar mit asynchronen Nachrichten (wie SMS)</li>
-							<li>durch <a href="https://signal.org/docs/specifications/doubleratchet/">Double-Ratchet</a> gelöst. (Achtung, nicht alle Messenger-Apps implementieren Double Rachtet (z.B. Threema, Telegram)</li>
-							<li>OMEMO</li>
-						</ul>
-					</section>
-					<section>
-						<h2>OTR</h2>
-						<ul>
-							<li>Borisov/Goldberg/Brewer, 2004:<br />
-								<a href="https://otr.cypherpunks.ca/otr-wpes.pdf">https://otr.cypherpunks.ca/otr-wpes.pdf</a>
-							</li>
-						</ul>
-						<h4>Forderungen an OTR</h4>
-						<ul>
-							<li>Beglaubigung <em>während</em> der Konversation</li>
-							<li>Abstreitbarkeit <em>nach</em> der Konversation</li>
-							<li>Perfect Forward Secrecy (PFS)</li>
-							<li>Alle 3 Features auch in Nachfolgern (OMEMO, Double Ratchet, mpOTR)</li>
-							<li>einfaches OTR kann als Layer auf Chatsystem laufen (z.B. Plugin in ICQ/Client), bessere Protokolle brauchen Servererweiterung (XEP-0384 für Clients verlangt 0334 und/oder 0313 für Server)</li>
-						</ul><br />
-					</section>
-					<section>
-						<h2>The Good, The Bad and the Ugly</h2>
-						<h4>Ende-zu-Ende Verschlüsselung implementieren</h4>
-						<ul>
-						  <li>Hoch gelobtes Code-Beipiel: Signal App (Java)</li>
-							<li>Wire App (<a href="https://github.com/wireapp/proteus">Rust</a>, Java)</li>
-							<li>Double Ratchet in C#: <a href="https://github.com/langboost/libsignal-protocol-pcl">libsignal-protocol-pcl</a>?</li>
-							<li>Obsurity: Telegramm (bittet nicht nachmachen)</li>
-						</ul>
-				  </section>
-				</section>
-				</section>
-				<section>
+							<section>
 					<h2>Abschlussrunde</h2>
 				</section>
 				<section>
